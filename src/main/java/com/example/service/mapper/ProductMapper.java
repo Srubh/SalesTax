@@ -4,19 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import com.example.Constants;
 import com.example.model.Product;
 import com.example.util.ProductEnum;
 
 public class ProductMapper {
 
-	private final List<String> inputText;
-
-	public ProductMapper(List<String> inputText) {
-		this.inputText = inputText;
-	}
-
-	public List<Product> toProuct() {
+	public List<Product> toProuct(List<String> inputText) {
 		List<Product> products = new ArrayList<Product>();
 		for (String item : inputText) {
 			products.add(getDetails(item));
@@ -33,7 +30,7 @@ public class ProductMapper {
 		if (textMatcher.find()) {
 			product.setQuantity(Integer.parseInt(textMatcher.group(1)));
 			product.setPrice(Double.parseDouble(textMatcher.group(4)));
-			product.setDesc(textMatcher.group(2));
+			product.setDesc(textMatcher.group(2).trim());
 			product.setImported(isImported(product.getDesc()));
 			product.setExempt(isExcluded(product.getDesc()));
 		}

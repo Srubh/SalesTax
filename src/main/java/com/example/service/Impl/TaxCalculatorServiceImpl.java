@@ -7,15 +7,10 @@ import com.example.model.Product;
 
 public class TaxCalculatorServiceImpl {
 
-	List<Product> products;
 	private double total;
 	private double salesTaxes;
 
-	public TaxCalculatorServiceImpl(List<Product> products) {
-		this.products = products;
-	}
-
-	public void computeTax() {
+	public void computeTax(List<Product> products) {
 
 		for (Product item : products) {
 

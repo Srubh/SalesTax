@@ -15,12 +15,12 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 
 		// Map to product class
-		productMapper = new ProductMapper(data);
-		List<Product> items = productMapper.toProuct();
+		productMapper = new ProductMapper();
+		List<Product> items = productMapper.toProuct(data);
 
 		// Calculate tax
-		taxCalculatorServiceImpl = new TaxCalculatorServiceImpl(items);
-		taxCalculatorServiceImpl.computeTax();
+		taxCalculatorServiceImpl = new TaxCalculatorServiceImpl();
+		taxCalculatorServiceImpl.computeTax(items);
 
 		//Print receipt details
 		print(items);
@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 		for (Product item : items) {
 			double total = (double) Math.round((item.getPrice() + item.getImportTax() + item.getSalesTax()) * 100)
 					/ 100;
-			System.out.println(item.getQuantity() + " " + item.getDesc() + " :" + total);
+			System.out.println(item.getQuantity() + " " + item.getDesc() + ": " + total);
 		}
 		System.out.println("Sales Taxes: " + taxCalculatorServiceImpl.getSalesTaxes());
 		System.out.println("Total " + taxCalculatorServiceImpl.getTotalAll());

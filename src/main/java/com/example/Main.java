@@ -12,7 +12,7 @@ public class Main {
 
 		List<String> data;
 		
-		//Read the file from resource folder
+		//Read all files from resource folder
 		for (File f : getResourceFolderFiles("asset")) {
 			BufferedReader br = new BufferedReader(new FileReader(f));
 			

@@ -39,7 +39,8 @@ public class ProductMapper {
 	}
 
 	private boolean isExcluded(String desc) {
-		return ProductEnum.getexemptdata().stream().anyMatch(name -> desc.contains(name.getLable()));
+		return ProductEnum.getexemptdata().stream()
+				.anyMatch(item -> item.getLable().stream().anyMatch(name -> desc.contains(name)));
 	}
 
 	private boolean isImported(String desc) {

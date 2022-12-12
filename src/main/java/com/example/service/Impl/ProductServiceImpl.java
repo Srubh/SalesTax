@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
 		productMapper = new ProductMapper();
 		List<Product> items = productMapper.toProuct(data);
 
-		// Calculate tax
+		// Calculate tax 
 		taxCalculatorServiceImpl = new TaxCalculatorServiceImpl();
 		taxCalculatorServiceImpl.computeTax(items);
 

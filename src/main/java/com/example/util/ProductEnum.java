@@ -4,22 +4,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum ProductEnum {
-	BOOK ("book"), 
-	FOOD ("chocolate"), 
-	Medicine ("pills");
+	BOOK (new String[]{"book"}), 
+	FOOD (new String[]{"chocolate"}), 
+	Medicine (new String[]{"pills"});
 	
-	ProductEnum(String lable) {
+	ProductEnum(String[] lable) {
 		// TODO Auto-generated constructor stub
 		this.lable = lable;
 	}
 
-	private String lable;
+	private String[] lable;
 	
-	public String getLable() {
-		return lable;
+	public List<String> getLable() {
+		return Arrays.asList(lable);
 	}
 
-	public void setLable(String lable) {
+	public void setLable(String[] lable) {
 		this.lable = lable;
 	}
 

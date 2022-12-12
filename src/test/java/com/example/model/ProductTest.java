@@ -13,7 +13,7 @@ class ProductTest {
         Product product2 = new Product();
         product2.setDesc(product1.getDesc());
         Assert.assertEquals(product1, product2);
-        product2.setDesc("desc1");
+        product2.setDesc("desc2");
         Assert.assertNotEquals(product1, product2);
         product2.setDesc(null);
         Assert.assertNotEquals(product1, product2);
